@@ -1061,6 +1061,9 @@
     <string name="settings_playback_auto_play_next_episode_description">প্রম্পট উপস্থিত হলে স্বয়ংক্রিয়ভাবে পরবর্তী পর্ব শুরু করুন।</string>
     <string name="settings_playback_auto_play_next_episode_fallback">বিঞ্জ গ্রুপ ব্যর্থ হলে ফলব্যাক</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">বিঞ্জ গ্রুপ পাওয়া না গেলে প্রথম উপলব্ধ স্ট্রিম স্বয়ংক্রিয়ভাবে নির্বাচন করুন। বন্ধ থাকলে, পরিবর্তে স্ট্রিম পিকার দেখায়।</string>
+    <string name="settings_playback_still_watching">আপনি কি এখনও দেখছেন?</string>
+    <string name="settings_playback_still_watching_description">পরপর স্বয়ংক্রিয়-প্লে হওয়া এপিসোডগুলোর পর প্রম্পট করুন।</string>
+    <string name="settings_playback_still_watching_threshold">এপিসোড থ্রেশোল্ড</string>
     <string name="settings_playback_decoder_device_only">শুধুমাত্র ডিভাইস ডিকোডার</string>
     <string name="settings_playback_decoder_prefer_app">অ্যাপ ডিকোডার পছন্দ করুন (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">ডিভাইস ডিকোডার পছন্দ করুন</string>
@@ -1397,6 +1400,9 @@
     <string name="player_next_episode_playing_via_countdown">%2$d সেকেন্ডে %1$s-এর মাধ্যমে প্লে হবে…</string>
     <string name="player_next_episode_thumbnail">পরবর্তী পর্বের থাম্বনেইল</string>
     <string name="player_next_episode_unaired">সম্প্রচারিত হয়নি</string>
+    <string name="player_still_watching_title">আপনি কি এখনও দেখছেন?</string>
+    <string name="player_still_watching_countdown">%1$d-এ বন্ধ হচ্ছে</string>
+    <string name="player_still_watching_exit">প্রস্থান</string>
     <string name="player_skip">স্কিপ</string>
     <string name="player_skip_intro">ইন্ট্রো স্কিপ করুন</string>
     <string name="player_skip_outro">আউটরো স্কিপ করুন</string>

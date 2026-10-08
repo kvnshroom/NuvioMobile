@@ -1021,6 +1021,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Start de volgende aflevering automatisch wanneer de prompt verschijnt.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Terugval wanneer de bingegroep mislukt</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Selecteer automatisch de eerste beschikbare stream als de bingegroep niet wordt gevonden. Als dit uitstaat, verschijnt de streamkiezer.</string>
+    <string name="settings_playback_still_watching">Ben je er nog?</string>
+    <string name="settings_playback_still_watching_description">Vraag dit na een aantal automatisch afgespeelde afleveringen op rij.</string>
+    <string name="settings_playback_still_watching_threshold">Drempel voor afleveringen</string>
     <string name="settings_playback_decoder_device_only">Alleen apparaatdecoders</string>
     <string name="settings_playback_decoder_prefer_app">Voorkeur voor app-decoders (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Voorkeur voor apparaatdecoders</string>
@@ -1346,6 +1349,9 @@
     <string name="player_next_episode_playing_via_countdown">Afspelen via %1$s over %2$ds...</string>
     <string name="player_next_episode_thumbnail">Miniatuur volgende aflevering</string>
     <string name="player_next_episode_unaired">Nog niet uitgezonden</string>
+    <string name="player_still_watching_title">Ben je er nog?</string>
+    <string name="player_still_watching_countdown">Stopt over %1$d</string>
+    <string name="player_still_watching_exit">Afsluiten</string>
     <string name="player_skip">Overslaan</string>
     <string name="player_skip_intro">Intro overslaan</string>
     <string name="player_skip_outro">Outro overslaan</string>

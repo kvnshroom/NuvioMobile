@@ -1021,6 +1021,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Стартирай следващия епизод автоматично, когато се появи подкана.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Резервен вариант когато групираното гледане откаже</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Автоматино избери първия наличен източник ако групираното гледане е неналично. Когато е изключено, покажи менюто с избор на източник</string>
+    <string name="settings_playback_still_watching">Все още ли гледаш?</string>
+    <string name="settings_playback_still_watching_description">Подсказка след последователно автоматично пуснати епизоди.</string>
+    <string name="settings_playback_still_watching_threshold">Праг на епизоди</string>
     <string name="settings_playback_decoder_device_only">Само декодери на устройството</string>
     <string name="settings_playback_decoder_prefer_app">Предпочитай декодери на приложението (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Предпочитай декодери на устройството</string>
@@ -1329,6 +1332,9 @@
     <string name="player_next_episode_playing_via_countdown">Пускане чрез %1$s след %2$d с…</string>
     <string name="player_next_episode_thumbnail">Миниатюра на следващ епизод</string>
     <string name="player_next_episode_unaired">Неизлъчен</string>
+    <string name="player_still_watching_title">Все още ли гледаш?</string>
+    <string name="player_still_watching_countdown">Спиране след %1$d</string>
+    <string name="player_still_watching_exit">Изход</string>
     <string name="player_skip">Пропусни</string>
     <string name="player_skip_intro">Пропусни въведението</string>
     <string name="player_skip_outro">Пропусни финала</string>

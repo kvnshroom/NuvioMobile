@@ -786,6 +786,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Automatycznie znajdź i odtwórz następny odcinek po osiągnięciu progu.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Fallback gdy grupa binge nie zostanie znaleziona</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Automatycznie wybierz pierwszy dostępny strumień jeśli grupa binge nie zostanie znaleziona. Gdy wyłączone, wyświetla wybór źródła.</string>
+    <string name="settings_playback_still_watching">Czy nadal oglądasz?</string>
+    <string name="settings_playback_still_watching_description">Pytaj po kolejnych automatycznie odtworzonych odcinkach.</string>
+    <string name="settings_playback_still_watching_threshold">Próg odcinków</string>
     <string name="settings_playback_decoder_device_only">Tylko urządzenie</string>
     <string name="settings_playback_decoder_prefer_app">Preferuj aplikację (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Preferuj urządzenie</string>
@@ -1012,6 +1015,9 @@
     <string name="player_next_episode_playing_via_countdown">Odtwarzanie przez %1$s za %2$ds…</string>
     <string name="player_next_episode_thumbnail">Miniatura następnego odcinka</string>
     <string name="player_next_episode_unaired">Niewyemitowany</string>
+    <string name="player_still_watching_title">Czy nadal oglądasz?</string>
+    <string name="player_still_watching_countdown">Zatrzymanie za %1$d</string>
+    <string name="player_still_watching_exit">Wyjdź</string>
     <string name="player_skip">Pomiń</string>
     <string name="player_skip_intro">Pomiń intro</string>
     <string name="player_skip_outro">Pomiń outro</string>

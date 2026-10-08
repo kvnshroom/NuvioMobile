@@ -1247,6 +1247,9 @@
     <string name="player_next_episode_playing_via_countdown">سيبدأ التشغيل عبر %1$s خلال %2$d ث…</string>
     <string name="player_next_episode_thumbnail">الصورة المصغرة للحلقة التالية</string>
     <string name="player_next_episode_unaired">لم يعرض بعد</string>
+    <string name="player_still_watching_title">هل ما زلت تشاهد؟</string>
+    <string name="player_still_watching_countdown">سيوقف خلال %1$d</string>
+    <string name="player_still_watching_exit">خروج</string>
     <string name="player_skip">تخطي</string>
     <string name="player_skip_intro">تخطي المقدمة</string>
     <string name="player_skip_outro">تخطي النهاية</string>
@@ -2160,4 +2163,7 @@
     <string name="stream_info_subtitle_source_addon">إضافة</string>
     <string name="stream_info_subtitle_source_embedded">مدمج</string>
     <string name="stream_info_player_engine">المشغل</string>
+    <string name="settings_playback_still_watching">تنبيه الخمول</string>
+    <string name="settings_playback_still_watching_description">إظهار تنبيه بعد تشغيل عدة حلقات متتالية تلقائياً.</string>
+    <string name="settings_playback_still_watching_threshold">عدد الحلقات المتتالية</string>
 </resources>

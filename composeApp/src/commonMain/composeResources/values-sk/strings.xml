@@ -1058,6 +1058,9 @@
     <string name="player_next_episode_playing_via_countdown">Prehráva sa cez %1$s za %2$ds…</string>
     <string name="player_next_episode_thumbnail">Miniatúra ďalšej epizódy</string>
     <string name="player_next_episode_unaired">Nevysielané</string>
+    <string name="player_still_watching_title">Stále sledujete?</string>
+    <string name="player_still_watching_countdown">Zastavenie o %1$d</string>
+    <string name="player_still_watching_exit">Ukončiť</string>
     <string name="player_skip">Preskočiť</string>
     <string name="player_skip_intro">Preskočiť intro</string>
     <string name="player_skip_outro">Preskočiť outro</string>
@@ -2289,6 +2292,9 @@
     <string name="community_membership_tier_supporter_plus">Podporovateľ Plus</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Záložná možnosť pri zlyhaní binge skupiny</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Automaticky vybrať prvý dostupný stream, ak sa nenájde binge skupina. Keď je možnosť vypnutá, zobrazí sa namiesto toho výber streamu.</string>
+    <string name="settings_playback_still_watching">Stále sledujete?</string>
+    <string name="settings_playback_still_watching_description">Zobraziť výzvu po po sebe idúcich automaticky prehratých epizódach.</string>
+    <string name="settings_playback_still_watching_threshold">Prah epizód</string>
     <string name="settings_playback_pause_overlay">Informačná vrstva pri pozastavení</string>
     <string name="settings_playback_pause_overlay_description">Zobraziť vrstvu s podrobnosťami po 5 sekundách pozastavenia.</string>
     <string name="settings_playback_subtitle_strip_sdh">Odstrániť SDH titulky</string>

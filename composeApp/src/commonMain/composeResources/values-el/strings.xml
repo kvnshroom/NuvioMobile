@@ -649,6 +649,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Αυτόματη εύρεση και αναπαραγωγή του επόμενου επεισοδίου όταν φτάνει το κατώφλι.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Εναλλακτική όταν αποτυγχάνει η ομάδα binge</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Αυτόματη επιλογή της πρώτης διαθέσιμης ροής αν δεν βρεθεί η ομάδα binge. Όταν είναι απενεργοποιημένο, εμφανίζεται ο επιλογέας ροών.</string>
+    <string name="settings_playback_still_watching">Παρακολουθείτε ακόμα;</string>
+    <string name="settings_playback_still_watching_description">Ερώτηση μετά από διαδοχικά αυτόματα αναπαραχθέντα επεισόδια.</string>
+    <string name="settings_playback_still_watching_threshold">Όριο επεισοδίων</string>
     <string name="settings_playback_decoder_device_only">Μόνο συσκευή</string>
     <string name="settings_playback_decoder_prefer_app">Προτίμηση εφαρμογής (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Προτίμηση συσκευής</string>
@@ -905,6 +908,9 @@
     <string name="player_next_episode_playing_via_countdown">Αναπαραγωγή μέσω %1$s σε %2$ds…</string>
     <string name="player_next_episode_thumbnail">Μικρογραφία επόμενου επεισοδίου</string>
     <string name="player_next_episode_unaired">Δεν έχει προβληθεί</string>
+    <string name="player_still_watching_title">Παρακολουθείτε ακόμα;</string>
+    <string name="player_still_watching_countdown">Διακοπή σε %1$d</string>
+    <string name="player_still_watching_exit">Έξοδος</string>
     <string name="player_seek_position">Θέση αναπαραγωγής</string>
     <string name="player_skip">Παράλειψη</string>
     <string name="player_skip_intro">Παράλειψη εισαγωγής</string>

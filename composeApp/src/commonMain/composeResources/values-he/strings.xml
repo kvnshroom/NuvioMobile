@@ -436,6 +436,9 @@
     <string name="player_next_episode_playing_via_countdown">מנגן דרך %1$s בעוד %2$d שנ׳…</string>
     <string name="player_next_episode_thumbnail">Thumbnail של הפרק הבא</string>
     <string name="player_next_episode_unaired">טרם שודר</string>
+    <string name="player_still_watching_title">עדיין איתנו?</string>
+    <string name="player_still_watching_countdown">ייעצר בעוד %1$d</string>
+    <string name="player_still_watching_exit">לא, תודה</string>
     <string name="player_skip">דלג</string>
     <string name="player_skip_intro">דלג על ההקדמה</string>
     <string name="player_skip_outro">דלג על הסיום</string>
@@ -773,4 +776,7 @@
     <string name="stream_info_subtitle_source_addon">תוסף</string>
     <string name="stream_info_subtitle_source_embedded">מוטמע</string>
     <string name="stream_info_player_engine">מנוע נגן</string>
+    <string name="settings_playback_still_watching">עדיין צופה?</string>
+    <string name="settings_playback_still_watching_description">הצגת שאלה לאחר פרקים עוקבים שהופעלו אוטומטית.</string>
+    <string name="settings_playback_still_watching_threshold">סף פרקים</string>
 </resources>

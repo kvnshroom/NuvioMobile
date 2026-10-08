@@ -708,6 +708,9 @@
   <string name="player_next_episode_playing_via_countdown">In riproduzione tramite %1$s tra %2$ds…</string>
   <string name="player_next_episode_thumbnail">Miniatura prossimo episodio</string>
   <string name="player_next_episode_unaired">Non ancora trasmesso</string>
+  <string name="player_still_watching_title">Ci sei ancora?</string>
+  <string name="player_still_watching_countdown">Interruzione tra %1$d</string>
+  <string name="player_still_watching_exit">Esci</string>
   <string name="player_skip">Salta</string>
   <string name="player_skip_intro">Salta Intro</string>
   <string name="player_skip_outro">Salta Finale</string>
@@ -1983,4 +1986,7 @@
     <string name="stream_info_subtitle_source_addon">Addon</string>
     <string name="stream_info_subtitle_source_embedded">Integrato</string>
     <string name="stream_info_player_engine">Motore player</string>
+  <string name="settings_playback_still_watching">Ci sei ancora?</string>
+  <string name="settings_playback_still_watching_description">Chiedi conferma dopo diversi episodi riprodotti automaticamente.</string>
+  <string name="settings_playback_still_watching_threshold">Soglia episodi</string>
 </resources>

@@ -1056,6 +1056,9 @@
     <string name="player_next_episode_playing_via_countdown">A reproduzir via %1$s em %2$ds…</string>
     <string name="player_next_episode_thumbnail">Miniatura do próximo episódio</string>
     <string name="player_next_episode_unaired">Não emitido</string>
+    <string name="player_still_watching_title">Ainda estás a ver?</string>
+    <string name="player_still_watching_countdown">A parar em %1$d</string>
+    <string name="player_still_watching_exit">Sair</string>
     <string name="player_skip">Saltar</string>
     <string name="player_skip_intro">Saltar introdução</string>
     <string name="player_skip_outro">Saltar encerramento</string>
@@ -1887,4 +1890,7 @@
     <string name="settings_mdblist_library_lists_description">Escolhe que listas do MDBList aparecem na Biblioteca e em Gerir Listas. A Watchlist aparece sempre.</string>
     <string name="settings_mdblist_library_lists_summary">%1$d de %2$d visíveis</string>
     <string name="settings_mdblist_library_lists_empty">Ainda não foram encontradas listas na tua conta MDBList. Sincroniza para as carregar.</string>
+    <string name="settings_playback_still_watching">Ainda estás a ver?</string>
+    <string name="settings_playback_still_watching_description">Perguntar após vários episódios reproduzidos automaticamente.</string>
+    <string name="settings_playback_still_watching_threshold">Limite de Episódios</string>
 </resources>

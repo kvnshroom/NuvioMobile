@@ -814,6 +814,9 @@
     <string name="player_next_episode_playing_via_countdown">Abspielen über %1$s in %2$ds…</string>
     <string name="player_next_episode_thumbnail">Thumbnail der nächsten Episode</string>
     <string name="player_next_episode_unaired">Noch nicht ausgestrahlt</string>
+    <string name="player_still_watching_title">Schaust du noch?</string>
+    <string name="player_still_watching_countdown">Stoppe in %1$d</string>
+    <string name="player_still_watching_exit">Beenden</string>
     <string name="player_skip">Überspringen</string>
     <string name="player_skip_intro">Intro überspringen</string>
     <string name="player_skip_outro">Outro überspringen</string>
@@ -1262,4 +1265,7 @@
     <string name="stream_info_subtitle_source_addon">Addon</string>
     <string name="stream_info_subtitle_source_embedded">Eingebettet</string>
     <string name="stream_info_player_engine">Player Engine</string>
+    <string name="settings_playback_still_watching">Schaust du noch?</string>
+    <string name="settings_playback_still_watching_description">Nach X Autoplay-Folgen stoppen.</string>
+    <string name="settings_playback_still_watching_threshold">Folgen Schwellwert</string>
 </resources>

@@ -1021,6 +1021,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Запуск следующего эпизода автоматически при появлении подсказки.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Резервный вариант при сбое группы Binge</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Автоматический выбор первого доступного потока, если группа не найдена. Если параметр выключен, вместо этого отображается средство выбора потока.</string>
+    <string name="settings_playback_still_watching">Вы ещё смотрите?</string>
+    <string name="settings_playback_still_watching_description">Спрашивать после нескольких подряд идущих эпизодов.</string>
+    <string name="settings_playback_still_watching_threshold">Порог эпизодов</string>
     <string name="settings_playback_decoder_device_only">Только декодеры устройств</string>
     <string name="settings_playback_decoder_prefer_app">Предпочитаю декодеры приложений (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Предпочитаю декодеры устройств</string>
@@ -1329,6 +1332,9 @@
     <string name="player_next_episode_playing_via_countdown">Воспроизведение через %1$s начнется через %2$d с…</string>
     <string name="player_next_episode_thumbnail">Миниатюра следующей серии</string>
     <string name="player_next_episode_unaired">Еще не вышел</string>
+    <string name="player_still_watching_title">Вы ещё смотрите?</string>
+    <string name="player_still_watching_countdown">Остановка через %1$d</string>
+    <string name="player_still_watching_exit">Выйти</string>
     <string name="player_skip">Пропустить</string>
     <string name="player_skip_intro">Пропустить заставку</string>
     <string name="player_skip_outro">Пропустить концовку</string>

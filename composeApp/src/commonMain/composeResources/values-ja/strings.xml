@@ -1082,6 +1082,9 @@
     <string name="player_next_episode_playing_via_countdown">%1$s で %2$d 秒後に再生…</string>
     <string name="player_next_episode_thumbnail">次のエピソードのサムネイル</string>
     <string name="player_next_episode_unaired">未放送</string>
+    <string name="player_still_watching_title">まだ視聴中ですか？</string>
+    <string name="player_still_watching_countdown">%1$dで停止</string>
+    <string name="player_still_watching_exit">終了</string>
     <string name="player_skip">スキップ</string>
     <string name="player_skip_intro">イントロをスキップ</string>
     <string name="player_skip_outro">アウトロをスキップ</string>
@@ -1950,4 +1953,7 @@
     <string name="stream_info_subtitle_source_addon">Addon</string>
     <string name="stream_info_subtitle_source_embedded">Embedded</string>
     <string name="stream_info_player_engine">Player Engine</string>
+    <string name="settings_playback_still_watching">まだ視聴中ですか？</string>
+    <string name="settings_playback_still_watching_description">連続自動再生エピソード後にプロンプトを表示します。</string>
+    <string name="settings_playback_still_watching_threshold">エピソードしきい値</string>
 </resources>

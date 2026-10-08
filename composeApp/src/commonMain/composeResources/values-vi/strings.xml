@@ -1061,6 +1061,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Tự động phát tập tiếp theo khi lời nhắc xuất hiện.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Dự phòng khi nhóm phát liên tục bị lỗi</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Tự động chọn luồng đầu tiên có sẵn nếu không tìm thấy nhóm phát liên tục. Khi tắt, trình chọn luồng sẽ được hiển thị.</string>
+    <string name="settings_playback_still_watching">Bạn vẫn đang xem chứ?</string>
+    <string name="settings_playback_still_watching_description">Nhắc nhở sau khi các tập tự động phát liên tiếp.</string>
+    <string name="settings_playback_still_watching_threshold">Ngưỡng tập phim</string>
     <string name="settings_playback_decoder_device_only">Chỉ dùng bộ giải mã thiết bị</string>
     <string name="settings_playback_decoder_prefer_app">Ưu tiên bộ giải mã ứng dụng (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Ưu tiên bộ giải mã thiết bị</string>
@@ -1399,6 +1402,9 @@
     <string name="player_next_episode_playing_via_countdown">Phát qua %1$s sau %2$d giây…</string>
     <string name="player_next_episode_thumbnail">Ảnh thu nhỏ tập tiếp theo</string>
     <string name="player_next_episode_unaired">Chưa phát sóng</string>
+    <string name="player_still_watching_title">Bạn vẫn đang xem chứ?</string>
+    <string name="player_still_watching_countdown">Dừng lại sau %1$d</string>
+    <string name="player_still_watching_exit">Thoát</string>
     <string name="player_skip">Bỏ qua</string>
     <string name="player_skip_intro">Bỏ qua Giới thiệu</string>
     <string name="player_skip_outro">Bỏ qua Đoạn kết</string>

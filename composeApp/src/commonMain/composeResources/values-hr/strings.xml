@@ -1063,6 +1063,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Automatski pokreni sljedeću epizodu kada se pojavi upit.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Rezervna opcija ako binge grupa ne uspije</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Automatski odaberi prvi dostupni stream ako se binge grupa ne pronađe. Kada je isključeno, prikazuje se izbornik streama.</string>
+    <string name="settings_playback_still_watching">Još uvijek gledaš?</string>
+    <string name="settings_playback_still_watching_description">Pitaj nakon uzastopnih automatski reproduciranih epizoda.</string>
+    <string name="settings_playback_still_watching_threshold">Prag epizoda</string>
     <string name="settings_playback_decoder_device_only">Samo dekoderi uređaja</string>
     <string name="settings_playback_decoder_prefer_app">Preferiraj dekodere aplikacije (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Preferiraj dekodere uređaja</string>
@@ -1401,6 +1404,9 @@
     <string name="player_next_episode_playing_via_countdown">Reproducira se putem %1$s za %2$ds…</string>
     <string name="player_next_episode_thumbnail">Sličica sljedeće epizode</string>
     <string name="player_next_episode_unaired">Neemitirano</string>
+    <string name="player_still_watching_title">Još uvijek gledaš?</string>
+    <string name="player_still_watching_countdown">Zaustavljanje za %1$d</string>
+    <string name="player_still_watching_exit">Izađi</string>
     <string name="player_skip">Preskoči</string>
     <string name="player_skip_intro">Preskoči uvod</string>
     <string name="player_skip_outro">Preskoči odjavu</string>

@@ -1049,6 +1049,9 @@
     <string name="settings_playback_auto_play_next_episode_description">Buscar y reproducir automáticamente el siguiente episodio cuando se alcance el umbral.</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Alternativa si falla el grupo de maratón</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Seleccionar automáticamente el primer stream disponible si no se encuentra el grupo de maratón. Si está desactivado, muestra el selector de streams.</string>
+    <string name="settings_playback_still_watching">¿Sigues viendo?</string>
+    <string name="settings_playback_still_watching_description">Pregunta tras reproducir varios episodios automáticamente de forma consecutiva.</string>
+    <string name="settings_playback_still_watching_threshold">Umbral de episodios</string>
     <string name="settings_playback_decoder_device_only">Solo dispositivo</string>
     <string name="settings_playback_decoder_prefer_app">Preferir app (FFmpeg)</string>
     <string name="settings_playback_decoder_prefer_device">Preferir dispositivo</string>
@@ -1382,6 +1385,9 @@
     <string name="player_next_episode_playing_via_countdown">Reproduciendo vía %1$s en %2$ds…</string>
     <string name="player_next_episode_thumbnail">Miniatura del siguiente episodio</string>
     <string name="player_next_episode_unaired">No emitido</string>
+    <string name="player_still_watching_title">¿Sigues viendo?</string>
+    <string name="player_still_watching_countdown">Se detendrá en %1$d</string>
+    <string name="player_still_watching_exit">Salir</string>
     <string name="player_skip">Saltar</string>
     <string name="player_skip_intro">Saltar intro</string>
     <string name="player_skip_outro">Saltar outro</string>

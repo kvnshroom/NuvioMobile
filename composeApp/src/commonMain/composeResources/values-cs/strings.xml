@@ -1084,6 +1084,9 @@
     <string name="player_next_episode_playing_via_countdown">Přehrávání přes %1$s za %2$ds…</string>
     <string name="player_next_episode_thumbnail">Miniatura další epizody</string>
     <string name="player_next_episode_unaired">Neodvysíláno</string>
+    <string name="player_still_watching_title">Stále sledujete?</string>
+    <string name="player_still_watching_countdown">Zastavení za %1$d</string>
+    <string name="player_still_watching_exit">Ukončit</string>
     <string name="player_skip">Přeskočit</string>
     <string name="player_skip_intro">Přeskočit intro</string>
     <string name="player_skip_outro">Přeskočit outro</string>
@@ -2103,6 +2106,9 @@
     <string name="community_membership_tier_supporter_plus">Podporovatel Plus</string>
     <string name="settings_playback_auto_play_next_episode_fallback">Náhradní chování při selhání skupiny pro automatické pokračování</string>
     <string name="settings_playback_auto_play_next_episode_fallback_description">Pokud se skupina pro automatické pokračování nenajde, automaticky vybrat první dostupný stream. Když je volba vypnutá, zobrazí se místo toho výběr streamu.</string>
+    <string name="settings_playback_still_watching">Stále sledujete?</string>
+    <string name="settings_playback_still_watching_description">Zeptat se po sobě jdoucích automaticky přehraných epizodách.</string>
+    <string name="settings_playback_still_watching_threshold">Práh počtu epizod</string>
     <string name="settings_playback_parental_guide">Upozornění na obsah</string>
     <string name="settings_playback_parental_guide_description">Při spuštění přehrávání zobrazit překryv s rodičovským upozorněním.</string>
     <string name="settings_playback_subtitle_strip_sdh">Odstranit prvky SDH z titulků</string>

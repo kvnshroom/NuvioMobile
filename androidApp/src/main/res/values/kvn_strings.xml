@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- kvn build: own launcher name, the same in every language -->
-    <string name="kvn_app_name" translatable="false">Nuvio kvn</string>
+    <!-- kvn build: launcher name, the same in every language -->
+    <string name="kvn_app_name" translatable="false">Nuvio</string>
 </resources>

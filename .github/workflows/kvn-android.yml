@@ -1,9 +1,10 @@
 name: kvn android build
 
 # Daily: put the kvn commits (still-watching, own package, update source) on top
-# of the latest upstream NuvioMobile release, build the Android APKs signed with
-# the kvn key, and publish them as a release of this fork. The app's updater
-# reads these.
+# of the latest upstream NuvioMobile release, build the Android APKs, sign them
+# with the kvn key, and publish them as a release of this fork. The app's updater
+# reads these. Building (upstream code) and signing (kvn key) run in separate
+# jobs so upstream build scripts never see the signing key.
 
 on:
   schedule:
@@ -112,18 +113,13 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v6
-      - name: Write local.properties and keystore
+      - name: Write local.properties
         working-directory: src
         env:
           LOCAL_PROPERTIES_BASE64: ${{ secrets.KVN_LOCAL_PROPERTIES_BASE64 }}
-          KEYSTORE_BASE64: ${{ secrets.KVN_RELEASE_KEYSTORE_BASE64 }}
-        run: |
-          set -euo pipefail
-          keystore="${RUNNER_TEMP}/nuvio-kvn-release.jks"
-          printf '%s' "${KEYSTORE_BASE64}" | base64 --decode > "${keystore}"
-          printf '%s' "${LOCAL_PROPERTIES_BASE64}" | base64 --decode > local.properties
-          printf '\nNUVIO_RELEASE_STORE_FILE=%s\n' "${keystore}" >> local.properties
-      - name: Build APKs
+        # Supabase values only; without signing values the release APKs stay unsigned.
+        run: printf '%s' "${LOCAL_PROPERTIES_BASE64}" | base64 --decode > local.properties
+      - name: Build unsigned APKs
         working-directory: src
         run: |
           set -euo pipefail
@@ -141,12 +137,47 @@ jobs:
           ls -la "${RUNNER_TEMP}/dist"
       - uses: actions/upload-artifact@v4
         with:
-          name: android
+          name: android-unsigned
           path: ${{ runner.temp }}/dist/*
           if-no-files-found: error
 
+  sign:
+    needs: android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: android-unsigned
+          path: unsigned
+      - name: Sign APKs
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KVN_RELEASE_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KVN_RELEASE_KEYSTORE_PASSWORD }}
+        run: |
+          set -euo pipefail
+          tools="$(ls -d "${ANDROID_HOME}"/build-tools/* | sort -V | tail -n 1)"
+          keystore="${RUNNER_TEMP}/nuvio-kvn-release.jks"
+          printf '%s' "${KEYSTORE_BASE64}" | base64 --decode > "${keystore}"
+          mkdir -p signed
+          for apk in unsigned/*.apk; do
+            name="$(basename "${apk}")"
+            name="${name/-unsigned/}"
+            "${tools}/zipalign" -f -p 4 "${apk}" "${RUNNER_TEMP}/aligned.apk"
+            "${tools}/apksigner" sign --ks "${keystore}" --ks-key-alias nuvio-kvn \
+              --ks-pass env:KEYSTORE_PASSWORD --key-pass env:KEYSTORE_PASSWORD \
+              --out "signed/${name}" "${RUNNER_TEMP}/aligned.apk"
+            "${tools}/apksigner" verify --print-certs "signed/${name}" | grep -i "SHA-256"
+          done
+          rm -f "${keystore}"
+          ls -la signed
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: signed/*.apk
+          if-no-files-found: error
+
   release:
-    needs: [prepare, android]
+    needs: [prepare, sign]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -155,8 +186,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
+          name: android
           path: dist
-          merge-multiple: true
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}

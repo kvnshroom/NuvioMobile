@@ -132,7 +132,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "../composeApp/proguard-rules.pro",
             )
-            signingConfig = signingConfigs.getByName("release")
+            // kvn build: without a keystore, build unsigned APKs (signed in a separate CI job).
+            signingConfigs.getByName("release").takeIf { it.storeFile != null }?.let { signingConfig = it }
             ndk {
                 debugSymbolLevel = "FULL"
             }

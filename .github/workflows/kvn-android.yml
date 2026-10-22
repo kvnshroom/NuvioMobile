@@ -1,0 +1,181 @@
+name: kvn android build
+
+# Daily: put the kvn commits (still-watching, own package, update source) on top
+# of the latest upstream NuvioMobile release, build the Android APKs signed with
+# the kvn key, and publish them as a release of this fork. The app's updater
+# reads these.
+
+on:
+  schedule:
+    - cron: "37 4 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Build even if this source was already released
+        type: boolean
+        default: false
+
+# Only the release job may write; the build job runs upstream build scripts.
+permissions:
+  contents: read
+
+concurrency:
+  group: kvn-android
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPO: NuvioMedia/NuvioMobile
+  FEATURE_BRANCH: kvn
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      build: ${{ steps.plan.outputs.build }}
+      version: ${{ steps.plan.outputs.version }}
+      number: ${{ steps.plan.outputs.number }}
+      upstream: ${{ steps.plan.outputs.upstream }}
+      tree: ${{ steps.plan.outputs.tree }}
+      commits: ${{ steps.plan.outputs.commits }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          path: ci
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.FEATURE_BRANCH }}
+          path: src
+          fetch-depth: 0
+      # Not persist-credentials: false, its cleanup trips over upstream's
+      # submodule entries. Drop the token by hand instead.
+      - name: Drop checkout credentials
+        working-directory: src
+        run: |
+          set -euo pipefail
+          # checkout keeps the token in an included config file and/or an extraheader.
+          git config --local --name-only --get-regexp '^includeif\.' | while read -r key; do
+            rm -f "$(git config --local --get "${key}")"
+            git config --local --unset-all "${key}"
+          done || true
+          git config --local --unset-all 'http.https://github.com/.extraheader' || true
+          if git config --list --show-origin --includes | grep -i -e extraheader -e includeif; then
+            echo "::error::Checkout credentials are still configured." >&2
+            exit 1
+          fi
+      - id: plan
+        working-directory: src
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE: ${{ inputs.force || 'false' }}
+        run: bash ../ci/scripts/kvn-prepare.sh plan
+
+  android:
+    needs: prepare
+    if: needs.prepare.outputs.build == 'true'
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+      NUMBER: ${{ needs.prepare.outputs.number }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          path: ci
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.FEATURE_BRANCH }}
+          path: src
+          fetch-depth: 0
+      - name: Drop checkout credentials
+        working-directory: src
+        run: |
+          set -euo pipefail
+          # checkout keeps the token in an included config file and/or an extraheader.
+          git config --local --name-only --get-regexp '^includeif\.' | while read -r key; do
+            rm -f "$(git config --local --get "${key}")"
+            git config --local --unset-all "${key}"
+          done || true
+          git config --local --unset-all 'http.https://github.com/.extraheader' || true
+          if git config --list --show-origin --includes | grep -i -e extraheader -e includeif; then
+            echo "::error::Checkout credentials are still configured." >&2
+            exit 1
+          fi
+      - name: Rebase onto upstream release
+        working-directory: src
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECT_TREE: ${{ needs.prepare.outputs.tree }}
+        run: bash ../ci/scripts/kvn-prepare.sh rebase
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Write local.properties and keystore
+        working-directory: src
+        env:
+          LOCAL_PROPERTIES_BASE64: ${{ secrets.KVN_LOCAL_PROPERTIES_BASE64 }}
+          KEYSTORE_BASE64: ${{ secrets.KVN_RELEASE_KEYSTORE_BASE64 }}
+        run: |
+          set -euo pipefail
+          keystore="${RUNNER_TEMP}/nuvio-kvn-release.jks"
+          printf '%s' "${KEYSTORE_BASE64}" | base64 --decode > "${keystore}"
+          printf '%s' "${LOCAL_PROPERTIES_BASE64}" | base64 --decode > local.properties
+          printf '\nNUVIO_RELEASE_STORE_FILE=%s\n' "${keystore}" >> local.properties
+      - name: Build APKs
+        working-directory: src
+        run: |
+          set -euo pipefail
+          # Upstream build number * 100 + kvn build number: always above upstream
+          # and above the previous kvn build.
+          upstream_code="$(sed -n 's/^CURRENT_PROJECT_VERSION=//p' iosApp/Configuration/Version.xcconfig)"
+          version_code=$((upstream_code * 100 + NUMBER))
+          echo "versionName ${VERSION}, versionCode ${version_code}"
+          ./gradlew :androidApp:assembleFullRelease \
+            "-Pnuvio.app.versionName=${VERSION}" \
+            "-Pnuvio.app.versionCode=${version_code}" \
+            --stacktrace
+          mkdir -p "${RUNNER_TEMP}/dist"
+          cp androidApp/build/outputs/apk/full/release/*.apk "${RUNNER_TEMP}/dist/"
+          ls -la "${RUNNER_TEMP}/dist"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: ${{ runner.temp }}/dist/*
+          if-no-files-found: error
+
+  release:
+    needs: [prepare, android]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ needs.prepare.outputs.version }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPSTREAM: ${{ needs.prepare.outputs.upstream }}
+          TREE: ${{ needs.prepare.outputs.tree }}
+          COMMITS: ${{ needs.prepare.outputs.commits }}
+        run: |
+          set -euo pipefail
+          {
+            echo "Unofficial personal build. Upstream release: [${UPSTREAM}](https://github.com/${UPSTREAM_REPO}/releases/tag/${UPSTREAM})"
+            echo
+            echo "kvn commits on top:"
+            echo "${COMMITS}"
+            echo
+            echo "Source tree: \`${TREE}\`"
+          } > notes.md
+          gh release create "${VERSION}" dist/* \
+            --repo "${GITHUB_REPOSITORY}" \
+            --target kvn-ci \
+            --title "Nuvio ${VERSION}" \
+            --notes-file notes.md \
+            --latest

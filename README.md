@@ -5,7 +5,7 @@ This branch holds only the automation for a personal, unofficial Nuvio Android b
 - Branch `kvn`: the latest upstream release of
   [NuvioMedia/NuvioMobile](https://github.com/NuvioMedia/NuvioMobile) plus a few commits on
   top: the "Are you still watching?" prompt (#2206), an own package `com.nuvio.app.kvn`
-  (installs next to the official app, launcher name "Nuvio kvn"), a settable version code,
+  (installs next to the official app), a settable version code,
   and the updater pointing at this fork.
 - Workflow `kvn android build` (daily and on demand): rebases the `kvn` commits onto the
   newest upstream release, builds the full-flavor release APKs signed with the kvn key, and

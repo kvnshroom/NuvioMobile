@@ -10,6 +10,9 @@ This branch holds only the automation for a personal, unofficial Nuvio Android b
 - Workflow `kvn android build` (daily and on demand): rebases the `kvn` commits onto the
   newest upstream release, builds the full-flavor release APKs signed with the kvn key, and
   publishes them as a release `<upstream tag>.kvn.<n>`.
+- Once upstream ships a kvn feature itself (the "Are you still watching?" PR), the rebase
+  leaves our commit out and keeps upstream's version. `UPSTREAMED_FEATURES` in
+  `scripts/kvn-prepare.sh` lists each feature with code that proves it is upstream.
 - Secrets: `KVN_RELEASE_KEYSTORE_BASE64` (signing key) and `KVN_LOCAL_PROPERTIES_BASE64`
   (Supabase values plus the keystore passwords). Losing the signing key means installed
   copies can no longer be updated, so keep its backup.

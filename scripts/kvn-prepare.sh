@@ -23,8 +23,35 @@ latest="$(gh api "repos/${upstream_repo}/releases/latest" --jq .tag_name)"
 base="$(git describe --tags --abbrev=0 --exclude '*.kvn.*' HEAD)"
 echo "Upstream release: ${latest}, kvn base: ${base}"
 
+# kvn commits whose feature upstream has merged since. Upstream squashes or
+# rewrites PRs, so its commit never matches ours and the rebase would conflict;
+# code that only exists once the feature is in proves it instead. One entry per
+# feature: <exact subject of the kvn commit>|<fixed string>|<pathspec>.
+UPSTREAMED_FEATURES=(
+  'feat(player): add "Are you still watching?" prompt for auto-play|stillWatchingEnabled|composeApp/src/commonMain'
+)
+
+# Short hashes of kvn commits that ${latest} already contains as a feature.
+upstreamed_commits() {
+  local entry subject pattern pathspec
+  for entry in "${UPSTREAMED_FEATURES[@]}"; do
+    IFS='|' read -r subject pattern pathspec <<<"${entry}"
+    git grep -q -F -e "${pattern}" "${latest}" -- "${pathspec}" 2>/dev/null || continue
+    git log --format='%h%x09%s' "${base}..HEAD" | awk -F'\t' -v s="${subject}" '$2 == s { print $1 }'
+  done
+}
+
 if [[ "${base}" != "${latest}" ]]; then
-  if ! git rebase --onto "${latest}" "${base}"; then
+  mapfile -t dropped < <(upstreamed_commits)
+  for sha in "${dropped[@]}"; do
+    echo "Upstream ${latest} already contains $(git log -1 --format='"%s"' "${sha}"): leaving out ${sha}."
+  done
+  # Non-interactive rebase: the editor turns those picks into drops. git
+  # appends the todo file path, which the inner bash receives as $0.
+  export KVN_DROP="${dropped[*]}"
+  # shellcheck disable=SC2016  # expanded by the inner bash, not here
+  editor='bash -c '\''for s in $KVN_DROP; do sed -i -E "s/^pick (${s}[0-9a-f]*) /drop \1 /" "$0"; done'\'
+  if ! GIT_SEQUENCE_EDITOR="${editor}" git rebase -i --onto "${latest}" "${base}"; then
     git rebase --abort || true
     echo "::error::The kvn commits no longer apply on ${latest}. Resolve the conflict on the kvn branch." >&2
     exit 1
